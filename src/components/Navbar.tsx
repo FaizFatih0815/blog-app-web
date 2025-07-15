@@ -6,6 +6,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { ModeToggle } from "./ModeToggle";
 
 const Navbar = () => {
   const router = useRouter();
@@ -17,8 +18,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-gray-300">
-      <nav className="container mx-auto flex items-center justify-between p-4">
+    <div className="bg-gray-300 dark:bg-transparent">
+      <nav className="container mx-auto flex items-center justify-between px-10 py-5">
         <Link href="/">
           <p className="text-2xl font-bold">BlogHub</p>
         </Link>
@@ -38,6 +39,7 @@ const Navbar = () => {
               </Button>
             </>
           )}
+          <ModeToggle />
         </div>
       </nav>
     </div>
