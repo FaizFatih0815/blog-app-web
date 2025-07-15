@@ -1,6 +1,6 @@
 import RegisterPage from "@/features/register";
 
-export const Register = () => {
+const Register = () => {
   return <RegisterPage />;
 };
 
