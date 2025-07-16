@@ -7,6 +7,7 @@ import { parseAsInteger, useQueryState } from "nuqs";
 import { useDebounceValue } from "usehooks-ts";
 import useGetBlogs from "../api/useGetBlogs";
 import BlogCard from "./BlogCard";
+import NoData from "@/components/NoData";
 
 const BlogList = () => {
   const [search, setSearch] = useQueryState("search", { defaultValue: "" });
@@ -36,6 +37,8 @@ const BlogList = () => {
             <Loader className="animate-spin" />
           </div>
         )}
+
+        {!isPending && !blogs?.data.length && <NoData />}
 
         {blogs?.data.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
